@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RickMastersTest</string>
+    <string name="my_house">Мой дом</string>
+    <string name="cameras">Камеры</string>
+    <string name="doors">Двери</string>
+    <string name="online">В сети</string>
+    <string name="play">Воспроизвести</string>
+    <string name="camera">Камера</string>
+    <string name="lock_off">Заблокировать</string>
+    <string name="edit">Редактировать</string>
+    <string name="star">В избранное</string>
+    <string name="recording">Запись</string>
+</resources>
