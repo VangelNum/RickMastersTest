@@ -1,9 +1,7 @@
 package com.vangelnum.rickmasterstest.feature_doors.data.model
 
-import androidx.compose.runtime.Immutable
 import kotlinx.serialization.Serializable
 
-@Immutable
 @Serializable
 data class DoorsData(
     val favorites: Boolean,

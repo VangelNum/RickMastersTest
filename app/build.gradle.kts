@@ -32,6 +32,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            buildConfigField ("String", "BASE_URL", "\"http://cars.cprogroup.ru/api/rubetek/\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -42,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

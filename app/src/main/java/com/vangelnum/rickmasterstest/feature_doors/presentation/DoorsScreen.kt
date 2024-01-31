@@ -38,12 +38,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -53,7 +54,6 @@ import com.vangelnum.rickmasterstest.R
 import com.vangelnum.rickmasterstest.feature_core.helpers.Resource
 import com.vangelnum.rickmasterstest.feature_doors.data.model.DoorsData
 import com.vangelnum.rickmasterstest.ui.theme.SecondFontColor
-import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -151,11 +151,11 @@ fun ActionDoorRow(modifier: Modifier) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = painterResource(R.drawable.edit),
+            imageVector = ImageVector.vectorResource(R.drawable.edit),
             contentDescription = stringResource(id = R.string.edit)
         )
         Image(
-            painter = painterResource(R.drawable.staroutline),
+            imageVector = ImageVector.vectorResource(R.drawable.staroutline),
             contentDescription = stringResource(id = R.string.star)
         )
     }
@@ -216,7 +216,7 @@ fun DraggableDoorItem(
             )
             Spacer(modifier = Modifier.width(4.dp))
             Image(
-                painter = painterResource(id = R.drawable.lockoff),
+                imageVector = ImageVector.vectorResource(id = R.drawable.lockoff),
                 contentDescription = stringResource(id = R.string.lock_off)
             )
         }
@@ -277,7 +277,7 @@ fun DraggableDoorItemWithImage(
                 contentScale = ContentScale.Crop
             )
             Image(
-                painter = painterResource(id = R.drawable.playbutton),
+                imageVector = ImageVector.vectorResource(id = R.drawable.playbutton),
                 contentDescription = stringResource(id = R.string.play),
                 modifier = Modifier
                     .align(
@@ -311,7 +311,7 @@ fun DraggableDoorItemWithImage(
                 }
                 Spacer(modifier = Modifier.width(4.dp))
                 Image(
-                    painter = painterResource(id = R.drawable.lockoff),
+                    imageVector = ImageVector.vectorResource(id = R.drawable.lockoff),
                     contentDescription = stringResource(
                         id = R.string.lock_off
                     )

@@ -11,7 +11,6 @@ import com.vangelnum.rickmasterstest.feature_camera.presentation.mappers.toCamer
 import com.vangelnum.rickmasterstest.feature_core.helpers.Resource
 import com.vangelnum.rickmasterstest.feature_db_camera.domain.repository.CameraDbDao
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,7 +32,7 @@ class CameraViewModel @Inject constructor(
     }
 
 
-    fun getCameras() {
+    private fun getCameras() {
         viewModelScope.launch {
             _cameras.value = Resource.Loading
             val localCameras = cameraDbDao.getAllCameras()

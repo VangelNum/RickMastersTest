@@ -32,16 +32,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
@@ -76,7 +78,10 @@ fun CameraScreen() {
         }
 
         is Resource.Success -> {
-            val camerasByRoom = currentState.resourceData.groupBy { it.room }
+
+            val camerasByRoom by remember {
+                mutableStateOf(currentState.resourceData.groupBy { it.room })
+            }
 
             val refreshState = rememberPullToRefreshState()
 
@@ -197,7 +202,7 @@ fun DraggableCard(
             if (camera.rec) {
                 Box(modifier = Modifier.padding(8.dp)) {
                     Image(
-                        painter = painterResource(R.drawable.rec),
+                        imageVector = ImageVector.vectorResource(R.drawable.rec),
                         contentDescription = stringResource(id = R.string.recording),
                         modifier = Modifier
                             .align(Alignment.TopStart),
@@ -211,7 +216,7 @@ fun DraggableCard(
                         .padding(2.dp)
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.star),
+                        imageVector = ImageVector.vectorResource(R.drawable.star),
                         contentDescription = stringResource(id = R.string.star),
                         modifier = Modifier
                             .align(Alignment.TopEnd)
@@ -219,7 +224,7 @@ fun DraggableCard(
                 }
             }
             Image(
-                painter = painterResource(id = R.drawable.playbutton),
+                imageVector = ImageVector.vectorResource(id = R.drawable.playbutton),
                 contentDescription = stringResource(id = R.string.play),
                 modifier = Modifier
                     .align(
@@ -254,7 +259,7 @@ fun ActionRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = painterResource(R.drawable.staroutline),
+            imageVector = ImageVector.vectorResource(R.drawable.staroutline),
             contentDescription = stringResource(id = R.string.star),
             modifier = Modifier
                 .clickable {
